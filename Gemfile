@@ -45,3 +45,14 @@ group :development do
   gem 'spring'
 end
 
+gem 'yard'
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'jquery-turbolinks'
+gem 'bootstrap-sass'
+gem 'bootstrap-material-design', '0.1.4'
+gem 'therubyracer'
+gem 'kaminari'
+gem 'devise'
+gem 'paranoia', '~> 2.0'
+gem 'paranoia_uniqueness_validator'
