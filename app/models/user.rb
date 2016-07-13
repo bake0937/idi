@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
          :authentication_keys => [:login]
          #,:validatable
 
+  #association
+  #profileとの1:1ヒモ付
+  has_one :profile
+
+  before_create :build_default_profile
+
   #validation
   validates :username,
   uniqueness: { case_sensitive: :false },
@@ -41,4 +47,12 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  #Sign_up時に、userテーブルと紐付けたprofilesテーブルのデータを生成する
+  private
+  def build_default_profile
+       build_profile
+       true
+  end
+
 end
