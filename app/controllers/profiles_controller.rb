@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
   private
   def update_params
-    params.require(:profile).permit(:nickname, :text)
+    params.require(:profile).permit(:nickname, :introduction)
   end
 
 end
