@@ -1,0 +1,64 @@
+<% provide :title, " - アイデアを編集" %>
+<div class="container">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="form-area">  
+      <br style="clear:both">
+      <h3 style="margin-bottom: 25px; text-align: center;">アイデアを編集</h3>
+
+        <%= form_for(@article) do |f| %>
+
+          <div class="form-group">
+            <%= f.label :アイデアのタイトル , autofocus: true %>
+            <%= f.text_field :title, autofocus: true, class: 'form-control' ,placeholder:"アイデアのタイトル" , :maxlength=>"20", required:true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :開発するアプリケーション , autofocus: true %><br />
+            <label><%= f.radio_button :category, "1" ,:checked => "checked" %>Webアプリケーション</label>
+            <label><%= f.radio_button :category, "2" %>モバイルアプリ</label>
+            <label><%= f.radio_button :category, "3" %>デスクトップアプリ</label>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :サービス内容（100字以内）, autofocus: true %>
+            <%= f.text_area :detail, autofocus: true, class: 'form-control', id: 'message', placeholder:"僕はおにぎりサービスを作ります" , :maxlength => "100", size: "100x2" %>
+            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :このサービスをやろうとおもったきっかけ（400字数以内）, autofocus: true %>
+            <%= f.text_area :cue, autofocus: true, class: 'form-control', id: 'message2', placeholder:"やりたかったんだよ!" , :maxlength => "400", size: "100x4" %>
+            <span class="help-block"><p id="characterLeft2" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+<!--             <div class="form-group">イメージ画像(モックアップ、設計図など)
+            <input type="file" class="form-control" id="image" name="image" size="30">
+          </div>
+-->
+
+          <div class="form-group">
+            <%= f.label :実装したい重要な機能（1000字以内）, autofocus: true %>
+            <%= f.text_area :feature, autofocus: true, class: 'form-control', id: 'message3', placeholder:"おにぎり友達を自動検出する機能" , :maxlength => "1000", size: "100x10" %>
+            <span class="help-block"><p id="characterLeft3" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :重点的に力をいれてみたいポイント（1000字以内）, autofocus: true %>
+            <%= f.text_area :point, autofocus: true, class: 'form-control', id: 'message4', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
+            <span class="help-block"><p id="characterLeft4" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :皆さんへのメッセージ（1000字以内）, autofocus: true %>
+            <%= f.text_area :remark, autofocus: true, class: 'form-control', id: 'message5', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
+            <span class="help-block"><p id="characterLeft5" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <%= f.hidden_field :user_id %>
+
+          <%= f.submit class:"btn btn-primary pull-right", value: '更新' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
