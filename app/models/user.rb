@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   #association
   #profileとの1:1ヒモ付
   has_one :profile
+  has_many :articles
 
   before_create :build_default_profile
 
