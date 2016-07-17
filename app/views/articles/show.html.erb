@@ -15,11 +15,7 @@
 
                 <!-- Author -->
                 <p class="lead">
-                    <% if @article.user.profile.nickname.blank? %>
-                    投稿者:<%= link_to "#{@article.user.username}", profile_path(@article.user.profile.id) %>
-                    <% else %>
-                    投稿者:<%= link_to "#{@article.user.profile.nickname}", profile_path(@article.user.profile.id) %>
-                    <% end %>
+                    投稿者:<%= link_to "#{@article.user.profile.nickname_to_username}", profile_path(@article.user.profile.id) %>
                 </p>
 
                 <hr>
@@ -43,57 +39,40 @@
 
                 <hr>
 
-                <!-- Blog Comments -->
-
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
+                <div class="well""> 
+                    <% if current_user %>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <h4>Leave a Comment:</h4>
+                            <%= form_for [@article, @review] do |f| %>
+                                <%= f.text_field :comment, placeholder: "コメントしてみよう" %>
+                                <%= f.submit "コメント" %>
+                            <% end %>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    <% end %>
                 </div>
 
                 <hr>
 
-                <!-- Posted Comments -->
-
                 <!-- Comment -->
                 <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        <!-- Nested Comment -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placehold.it/64x64" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Nested Start Bootstrap
-                                    <small>August 25, 2014 at 9:30 PM</small>
-                                </h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
+                        <div class="comments">
+                          <% if @reviews %>
+                            <% @reviews.each do |review| %>
+                                <div class="comment">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                                    </a>
+                                    <small><%= "#{review.updated_at}" %></small>
+                                      <p>
+                                        <strong>
+                                            <%= link_to "#{review.user.profile.nickname_to_username}" , profile_path(review.user.profile.id) %>：
+                                        </strong>
+                                        <%= review.comment %>
+                                      </p>
+                                </div>
+                            <% end %>
+                          <% end %>
                         </div>
                         <!-- End Nested Comment -->
                     </div>
