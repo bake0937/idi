@@ -4,7 +4,6 @@
 <div class="container">
     <div class="article">
         <div class="row">
-
             <!-- Blog Post Content Column -->
             <div class="col-lg-12">
 
@@ -12,40 +11,48 @@
 
                 <!-- Title -->
                 <h1>アイデア名:<%= @article.title %></h1>
-
                 <!-- Author -->
                 <p class="lead">
                     投稿者:<%= link_to "#{@article.user.profile.nickname_to_username}", profile_path(@article.user.profile.id) %>
                 </p>
-
                 <hr>
-
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on <%= "#{@article.updated_at}" %></p>
+                <p class="glyphicon glyphicon-time" >投稿日:<%= l @article.created_at, format: :default %></p>
+                <p class="glyphicon glyphicon-time" >最終更新日:<%= l @article.updated_at, format: :default %></p>
 
                 <hr>
 
                 <!-- Preview Image -->
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-
                 <hr>
 
                 <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
+                <p class="lead">開発するアプリケーション<%= simple_format(@article.category) %></p>
                 <hr>
 
+                <p class="lead">サービス内容<%= simple_format(@article.detail) %></p>
+                <hr>
+
+                <p class="lead">このサービスをやろうとおもったきっかけ<%= simple_format(@article.cue) %></p>
+                <hr>
+
+                <p class="lead">実装したい重要な機能<%= simple_format(@article.feature) %></p>
+                <hr>
+
+                <p class="lead">重点的に力をいれてみたいポイント<%= simple_format(@article.point) %></p>
+                <hr>
+
+                <p class="lead">皆さんへのメッセージ<%= simple_format(@article.remark) %></p>
+                <hr>
+
+                <!-- Post Comment -->
                 <div class="well""> 
                     <% if current_user %>
                         <div class="form-group">
-                            <h4>Leave a Comment:</h4>
+                            <h4>コメント:</h4>
                             <%= form_for [@article, @review] do |f| %>
-                                <%= f.text_field :comment, placeholder: "コメントしてみよう" %>
-                                <%= f.submit "コメント" %>
+                                <%= f.text_area :comment, size: "100x5" %><br />
+                                <%= f.submit "投稿する", class: "btn btn-primary withripple" %>
                             <% end %>
                         </div>
                     <% end %>
