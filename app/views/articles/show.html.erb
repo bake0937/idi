@@ -70,7 +70,7 @@
                                     <a class="pull-left" href="#">
                                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                                     </a>
-                                    <small><%= "#{review.updated_at}" %></small>
+                                    <small><%= l review.created_at, format: :default %></small>
                                       <p>
                                         <strong>
                                             <%= link_to "#{review.user.profile.nickname_to_username}" , profile_path(review.user.profile.id) %>：
