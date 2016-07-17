@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   #profileとの1:1ヒモ付
   has_one :profile
   has_many :articles
+  has_many :reviews
 
   before_create :build_default_profile
 
@@ -18,7 +19,6 @@ class User < ActiveRecord::Base
   validates :username,
   uniqueness: { case_sensitive: :false },
   length: { minimum: 4, maximum: 31 },format: { with: /\A[a-zA-Z0-9_]+\z/, message: "ユーザー名は半角英数字です"}
-
 
   #論理削除
   acts_as_paranoid
