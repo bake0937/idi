@@ -1,0 +1,19 @@
+<!-- <div class="row text-center"> -->
+<!--     <div class="col-md-4"> -->
+<div class="thumbnail col-md-3 text-center">
+    <%= link_to article_path(article.id) do %>
+        <img src="http://placehold.it/800x500" alt="">
+    <% end %>
+    <div class="caption">
+    <h4>
+        <span>
+          <%= simple_format(truncate(article.title, :length => 13)) %>
+        </span>
+    </h4>
+    <%= simple_format(article.category) %>
+    <%= simple_format(truncate(article.detail, :length => 16)) %>
+    <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
+    </div>
+</div>
+    <!-- </div> -->
+<!-- </div> -->
