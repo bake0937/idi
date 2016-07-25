@@ -21,10 +21,14 @@ class ArticlesController < ApplicationController
   end
 
   def update
+  def destroy
     article = Article.find(params[:id])
-    article.update(update_params)
-    flash[:success] = '更新しました'
+      if article.user_id == current_user.id
+        article.destroy
+      end
     redirect_to controller: :home, action: :index
+    flash[:success] = '投稿を削除しました'
+  end
   end
 
   private
