@@ -9,4 +9,13 @@ class Profile < ActiveRecord::Base
       nickname
     end
   end
+
+  def username?
+    if nickname.present?
+      "@" + user.username
+    else
+
+    end
+  end
+
 end
