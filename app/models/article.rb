@@ -2,6 +2,10 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_many :reviews, dependent: :delete_all
 
+  validates :title, presence: true
+  validates :category, presence: true
+  validates :detail, presence: true
+
   enum category: {
     web: 1,
     mobile: 2,
