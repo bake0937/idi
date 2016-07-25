@@ -7,6 +7,7 @@ ja:
     title: タイトル
     category: 開発するアプリケーション
     detail: サービス内容
+    username: ユーザー名
   date:
     abbr_day_names:
     - 日
