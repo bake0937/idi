@@ -28,10 +28,22 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-
   end
 
   def update
+
+    @article = Article.find(params[:id])
+    @article.update(update_params)
+
+    if @article.save
+      flash[:success] = 'アイデアを更新しました'
+      redirect_to controller: :articles, action: :show
+    else
+      render :edit
+    end
+
+  end
+
   def destroy
     article = Article.find(params[:id])
       if article.user_id == current_user.id
