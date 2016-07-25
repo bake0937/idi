@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def show
+    @review = Review.new
     @article = Article.find(params[:id])
+    #退会したユーザーのレビューは表示させない
+    @reviews = @article.reviews.joins(:user).includes(:user)
   end
 
   def new
