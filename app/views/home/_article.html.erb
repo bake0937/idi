@@ -1,0 +1,16 @@
+<div class="thumbnail col-md-3 text-center">
+  <%= link_to article_path(article.id) do %>
+    <img src="http://placehold.it/320x120" alt="">
+  <% end %>
+  <div class="caption">
+    <h4>
+      <span>
+      <%= link_to "#{truncate(article.title, :length => 14)}",article_path(article.id) %>
+      </span>
+    </h4>
+    <%= simple_format(add_glyphicon_to_category(article)) %>
+    <%= simple_format(truncate(article.detail, :length => 17)) %>
+    <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
+    <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
+  </div>
+</div>
