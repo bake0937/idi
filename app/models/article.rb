@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
+
   enum category: {
     web: 1,
     mobile: 2,

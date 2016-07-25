@@ -70,13 +70,17 @@
                                     <a class="pull-left" href="#">
                                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                                     </a>
-                                    <small><%= l review.created_at, format: :default %></small>
-                                      <p>
-                                        <strong>
-                                            <%= link_to "#{review.user.profile.nickname_to_username}" , profile_path(review.user.profile.id) %>：
-                                        </strong>
-                                        <%= review.comment %>
-                                      </p>
+                                    <small>
+                                        <p class="glyphicon glyphicon-time"><%= l review.created_at, format: :default %>
+                                        </p>
+                                        <% if current_user?(review.user_id) %>
+                                          <%= link_to '削除', article_review_path(@article, review), method: :delete, data: { confirm: 'このコメントを削除してもよろしいですか？'} %>
+                                        <% end %>
+                                    </small>
+                                    <strong>
+                                        <%= link_to simple_format("#{review.user.profile.nickname_to_username}:") , profile_path(review.user.profile.id) %><br />
+                                    </strong>
+                                    <%= simple_format(review.comment) %>
                                 </div>
                             <% end %>
                           <% end %>
