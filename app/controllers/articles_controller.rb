@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :correct_user,   only: [:edit, :update]
+
   def show
     @article = Article.find(params[:id])
   end
@@ -34,5 +36,10 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark ).merge(user_id: current_user.id)
   end
 
+  #ログインユーザーが他ユーザーの情報を編集するパスを指定した場合はrootへリダイレクトする
+  def correct_user
+      @article = Article.find(params[:id])
+      redirect_to(root_path) unless current_user?(@article.user_id)
+  end
 
 end
