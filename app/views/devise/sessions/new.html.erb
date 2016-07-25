@@ -10,7 +10,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-5 col-md-offset-6">
+    <div class="col-md-5 col-md-offset-7">
       <div class="signin-signup-panel">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -23,42 +23,27 @@
 
               <!-- フラッシュメッセージ -->
               <% if alert %>
-              <p class='alert alert-danger'><%= alert %></p>
+                <p class='alert alert-danger'><%= alert %></p>
               <% end %>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">ユーザー名</label>
-                <div class="col-sm-9">
-
-                  <%#= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'input form-control' %>
+                <div class="col-sm-12 sign-in-up-form_item">
+                  <label for="inputEmail3"">ユーザー名</label>
                   <%= f.text_field :login, autofocus: true, placeholder: 'ユーザー名またはEmail', class: 'input form-control' %>
-
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-                <div class="col-sm-9">
-
-                  <%= f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'input form-control' %>
+                <div class="col-sm-12 sign-in-up-form_item">
+                  <label for="inputPassword3">パスワード</label>
+                  <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', class: 'input form-control' %>
                 </div>
               </div>
-
-              <% if devise_mapping.rememberable? %>
-              <div class="col-sm-offset-1 col-sm-11">
-                <div class='checkbox'>
-                  <label>
-                    <input id='user_remember_me' name='user[remember_me]' type='checkbox' value='1'>
-                    <%= f.label :remember_me, 'ログイン情報を記憶する', class: 'memory-check' %>
-                  </label>
-                </div>
-              </div>
-              <% end %>
 
               <div class="form-group last">
                 <div class="form-group last">
-                  <div class="col-sm-offset-3 col-sm-9">
-                    <%= f.submit class: 'btn btn-success btn-sm', value: 'Sign in' %>
+                <div class="col-sm-12">
+                    <%= f.submit class: 'btn btn-success btn-sm sign-in-up-btn', value: 'Sign in' %>
                   </div>
                 </div>
               </div>
