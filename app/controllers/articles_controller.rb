@@ -55,6 +55,12 @@ class ArticlesController < ApplicationController
     redirect_to controller: :home, action: :index
     flash[:success] = '投稿を削除しました'
   end
+
+  def confirm
+    #POSTされたパラメータを取得
+    @article = Article.new(create_params)
+    #validetesをチェックし、NGなら戻す
+    render :new if @article.invalid?
   end
 
   private
