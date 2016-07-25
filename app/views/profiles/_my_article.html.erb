@@ -7,11 +7,12 @@
     <div class="caption">
     <h4>
         <span>
-          <%= simple_format(truncate(article.title, :length => 13)) %>
+          <%= link_to "#{truncate(article.title, :length => 13)}",article_path(article.id) %>
         </span>
     </h4>
-    <%= simple_format(article.category) %>
+    <%= simple_format(add_glyphicon_to_category(article)) %>
     <%= simple_format(truncate(article.detail, :length => 16)) %>
+    <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
     <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
     </div>
 </div>
