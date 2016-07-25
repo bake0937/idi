@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :current_user?
+
+  #選択したオブジェクトのuser_idがログインユーザーかどうかを判別する
+  def current_user?(user_id)
+    user_id == current_user.id
+  end
 
   # sign_up、sign_in、account_updateの時に、usernameも許可する
   protected
