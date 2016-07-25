@@ -5,6 +5,9 @@
       <br style="clear:both">
       <h3 style="margin-bottom: 25px; text-align: center;">アイデアを編集</h3>
 
+        <!-- バリデーションを表示 -->
+        <%= render 'shared/error_messages' %>
+
         <%= form_for(@article) do |f| %>
 
           <div class="form-group">
