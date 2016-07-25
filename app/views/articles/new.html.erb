@@ -1,34 +1,47 @@
 <% provide :title, " - 新規アイデア投稿" %>
 <div class="container">
   <div class="col-xs-8 col-xs-offset-2">
-    <div class="form-area">  
+    <div class="form-area">
       <br style="clear:both">
       <h3 style="margin-bottom: 25px; text-align: center;">新規アイデア投稿</h3>
 
         <%= form_for(@article) do |f| %>
 
           <div class="form-group">
-            <%= f.label :アイデアのタイトル , autofocus: true %>
-            <%= f.text_field :title, autofocus: true, class: 'form-control' ,placeholder:"アイデアのタイトル" , :maxlength=>"20", required:true %>
+            <%= f.label :タイトル（必須）, autofocus: true %>
+            <%= f.text_field :title, autofocus: true, class: 'form-control' ,placeholder:"タイトル" , :maxlength=>"20" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :開発するアプリケーション , autofocus: true %><br />
-            <label><%= f.radio_button :category, "1" ,:checked => "checked" %>Webアプリケーション</label>
-            <label><%= f.radio_button :category, "2" %>モバイルアプリ</label>
-            <label><%= f.radio_button :category, "3" %>デスクトップアプリ</label>
+            <%= f.label :開発するアプリケーション（必須）, autofocus: true %><br />
+            <label>
+              <%= f.radio_button :category, :web , :checked => "checked"%>
+              <span class="glyphicon glyphicon-globe">Webアプリ</span>
+            </label>
+            <label>
+              <%= f.radio_button :category, :mobile %>
+              <span class="glyphicon glyphicon-phone">モバイルアプリ</span>
+            </label>
+            <label>
+              <%= f.radio_button :category, :desk_top %>
+              <span class="glyphicon glyphicon-home">デスクトップアプリ</span>
+            </label>
           </div>
 
           <div class="form-group">
-            <%= f.label :サービス内容（100字以内）, autofocus: true %>
+            <%= f.label :サービス内容（100字以内）（必須）, autofocus: true %>
             <%= f.text_area :detail, autofocus: true, class: 'form-control', id: 'message', placeholder:"僕はおにぎりサービスを作ります" , :maxlength => "100", size: "100x2" %>
-            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+            <span class="help-block">
+              <p id="characterLeft" class="help-block ">You have reached the limit</p>
+            </span>
           </div>
 
           <div class="form-group">
             <%= f.label :このサービスをやろうとおもったきっかけ（400字数以内）, autofocus: true %>
             <%= f.text_area :cue, autofocus: true, class: 'form-control', id: 'message2', placeholder:"やりたかったんだよ!" , :maxlength => "400", size: "100x4" %>
-            <span class="help-block"><p id="characterLeft2" class="help-block ">You have reached the limit</p></span>
+            <span class="help-block">
+              <p id="characterLeft2" class="help-block ">You have reached the limit</p>
+            </span>
           </div>
 
 <!--             <div class="form-group">イメージ画像(モックアップ、設計図など)
@@ -39,19 +52,25 @@
           <div class="form-group">
             <%= f.label :実装したい重要な機能（1000字以内）, autofocus: true %>
             <%= f.text_area :feature, autofocus: true, class: 'form-control', id: 'message3', placeholder:"おにぎり友達を自動検出する機能" , :maxlength => "1000", size: "100x10" %>
-            <span class="help-block"><p id="characterLeft3" class="help-block ">You have reached the limit</p></span>
+            <span class="help-block">
+              <p id="characterLeft3" class="help-block ">You have reached the limit</p>
+            </span>
           </div>
 
           <div class="form-group">
             <%= f.label :重点的に力をいれてみたいポイント（1000字以内）, autofocus: true %>
             <%= f.text_area :point, autofocus: true, class: 'form-control', id: 'message4', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
-            <span class="help-block"><p id="characterLeft4" class="help-block ">You have reached the limit</p></span>
+            <span class="help-block">
+              <p id="characterLeft4" class="help-block ">You have reached the limit</p>
+            </span>
           </div>
 
           <div class="form-group">
             <%= f.label :皆さんへのメッセージ（1000字以内）, autofocus: true %>
             <%= f.text_area :remark, autofocus: true, class: 'form-control', id: 'message5', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
-            <span class="help-block"><p id="characterLeft5" class="help-block ">You have reached the limit</p></span>
+            <span class="help-block">
+              <p id="characterLeft5" class="help-block ">You have reached the limit</p>
+            </span>
           </div>
 
           <%= f.hidden_field :user_id %>

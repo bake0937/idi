@@ -11,8 +11,19 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(create_params)
-    redirect_to controller: :home, action: :index
+
+    # @article = Article.create
+    @article = Article.new(create_params)
+
+    if params[:back]
+      render :new
+    elsif @article.save
+      flash[:success] = 'アイデアを投稿しました'
+      redirect_to controller: :home, action: :index
+    else
+      render :new
+    end
+
   end
 
   def edit
