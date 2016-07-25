@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
-         :authentication_keys => [:login]
-         #,:validatable
+         :validatable,:authentication_keys => [:login]
 
   #association
   #profileとの1:1ヒモ付
@@ -18,7 +17,7 @@ class User < ActiveRecord::Base
   #validation
   validates :username,
   uniqueness: { case_sensitive: :false },
-  length: { minimum: 4, maximum: 31 },format: { with: /\A[a-zA-Z0-9_]+\z/, message: "ユーザー名は半角英数字です"}
+  length: { minimum: 4, maximum: 31 },format: { with: /\A[a-zA-Z0-9_-]+\z/, message: "ユーザー名は半角英数字です"}
 
   #論理削除
   acts_as_paranoid
@@ -47,6 +46,11 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  #uniqueness_without_deleted: true を追加したためユニークチェックが余分にかかってしまうため阻止
+  def email_changed?
+    false
   end
 
   #Sign_up時に、userテーブルと紐付けたprofilesテーブルのデータを生成する
