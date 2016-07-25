@@ -31,27 +31,10 @@
           </div>
         </div>
       </div>
-
-      <!-- コンテンツ -->
       <div class="row">
-
-        <div class="col-xs-6 col-sm-4 col-lg-4 col-md-4">
-          <% @articles.each do |article| %>
-
-            <div class="thumbnail">
-              <img src="http://placehold.it/320x120" alt="">
-              <div class="caption">
-                <h3><%= article.created_at %></h3>
-                <p><%= article.id %></p>
-                <p>
-                </p>
-              </div>
-            </div>
-
-          <% end %>
-
-        </div>
-
+        <% @articles.each do |article| %>
+          <%= render partial: "article", locals: { article: article } %>
+        <% end %>
       </div>
 
       <div class="kaminari">
