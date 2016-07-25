@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :profiles, only: [:show, :edit, :update]
   resources :articles, only: [:show, :new, :create, :edit, :update, :destroy] do
-    resources :reviews, only: [:create, :destroy]
+  resources :reviews, only: [:create, :destroy]
+    collection do
+      post 'confirm'
+    end
   end
 end
