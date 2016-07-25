@@ -17,6 +17,27 @@
   z-index: 1;
 }
 
+$base: #ec5e5f;
+.kaminari {
+  // margin: 0 auto;
+  margin: 20px auto 40px;
+  clear: both;
+  text-align: center;
+  .page {
+    a {
+      border: 1px solid $base;
+      padding: 3px 5px 3px 8px;
+    }
+  }
+  .prev {
+    margin-right: 5px;
+  }
+  .next {
+    margin-left: 5px;
+  }
+}
+
+
 /*navバーから間を空ける*/
 body {
   padding-top: 70px; /* body padding for fixed top nav */
@@ -29,6 +50,13 @@ body {
   background-size: cover;
 }
 
+#error_explanation{
+  color: red;
+}
+
+.responsive-overwrite{
+    margin: 0 auto;
+}
 
 /*フッターの設定*/
 footer {
@@ -37,5 +65,3 @@ footer {
     font-size: .8em;
   }
 }
-
-
