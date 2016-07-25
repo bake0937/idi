@@ -13,7 +13,7 @@
   padding: 10px 40px 60px;
   margin: 10px 0px 60px;
   border: 1px solid GREY;
-  /*フォームの透明度*/
+  /*透明度*/
   opacity: 0.9;
 }
 
@@ -22,6 +22,24 @@
   padding: 10px 40px 60px;
   margin: 10px 0px 60px;
   border: 1px solid GREY;
-  /*フォームの透明度*/
+  /*透明度*/
   opacity: 0.9;
+}
+
+.comment {
+    padding-bottom: 40px;
+}
+
+.preview-button{
+  margin: 3px;
+}
+
+.caption a {
+    text-decoration: none;
+    color: black;
+}
+
+.caption a:hover {
+    text-decoration: none;
+    color: black;
 }
