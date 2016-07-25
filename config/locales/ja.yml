@@ -4,6 +4,9 @@ ja:
     password: パスワード
     group_id: グループ名
     user: ユーザー
+    title: タイトル
+    category: 開発するアプリケーション
+    detail: サービス内容
   date:
     abbr_day_names:
     - 日
