@@ -13,13 +13,6 @@
   <!-- bodyタグのclass属性にコントローラ名をつける -->
   <body class='<%= "#{controller.controller_name}" %>'>
 
-    <!-- bootstrap-material-designを読み込む -->
-    <script type='text/javascript' charset='utf-8'>
-      $(function(){
-        $.material.init();
-      });
-    </script>
-
     <!-- ヘッダーを表示 -->
     <%= render partial: 'common/header' %>
     <div class='container'>
