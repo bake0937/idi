@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   private
   def update_params
-    params.require(:profile).permit(:nickname, :introduction)
+    params.require(:profile).permit(:nickname, :introduction, :avatar)
   end
 
   #ログインユーザーが他ユーザーの情報を編集するパスを指定した場合はログインユーザーのプロフィーページへリダイレクトする
