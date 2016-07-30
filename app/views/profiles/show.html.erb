@@ -7,7 +7,7 @@
         <header class="profile-header">
             <div class="introduction">
                 <h2>
-                    <img class="avator-original" src="http://onsen-wakuwaku.jp/uploads/user/avator_img/66/4ab8e6933d4c87f5c7020a5019d9aeaf.jpeg" alt="4ab8e6933d4c87f5c7020a5019d9aeaf">
+                    <%= image_tag @profile.avatar.url %>
                     <%= @profile.nickname_to_username %>
                     <h4><%= @profile.username? %></h4>
                     <h3><%= simple_format(@profile.introduction) %></h3>
