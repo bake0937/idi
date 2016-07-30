@@ -12,7 +12,11 @@
         <div class="panel-body">
 
         <%= form_for @profile do |f| %>
+
           <div class="form-group">
+            <div class="col-lg-6">プロフィール画像
+              <%= f.file_field :avatar %>
+            </div>
             <div class="col-lg-6">ニックネーム
               <%= f.text_field :nickname, placeholder: "ニックネーム", class: "form-control" %>
             </div>
