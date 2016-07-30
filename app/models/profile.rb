@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  mount_uploader :avatar, AvatarUploader
 
   #nicknameがnilの場合、usernameの値を格納
   def nickname_to_username
