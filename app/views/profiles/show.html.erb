@@ -1,13 +1,11 @@
 <% provide :title, " - #{@profile.nickname_to_username}" %>
 
-<!-- Page Content -->
 <div class="container">
     <div class="profile">
-        <!-- Profile Header -->
         <header class="profile-header">
             <div class="introduction">
                 <h2>
-                    <img class="avator-original" src="http://onsen-wakuwaku.jp/uploads/user/avator_img/66/4ab8e6933d4c87f5c7020a5019d9aeaf.jpeg" alt="4ab8e6933d4c87f5c7020a5019d9aeaf">
+                    <%= image_tag @profile.avatar.url, class:"profile_avatar" %>
                     <%= @profile.nickname_to_username %>
                     <h4><%= @profile.username? %></h4>
                     <h3><%= simple_format(@profile.introduction) %></h3>
@@ -17,15 +15,12 @@
 
         <hr>
 
-        <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
                 <h3 >投稿したアイデア</h3>
             </div>
         </div>
-        <!-- /.row -->
 
-        <!-- Page Features -->
         <div class="row">
             <% @articles.each do |article| %>
               <%= render partial: "my_article", locals: { article: article } %>
