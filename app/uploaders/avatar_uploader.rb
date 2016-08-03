@@ -40,6 +40,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def default_url
+    "default_user.png"
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
