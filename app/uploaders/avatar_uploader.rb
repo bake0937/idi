@@ -41,7 +41,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "default_user.png"
+    "default_avatar.png"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
