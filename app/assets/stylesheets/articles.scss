@@ -35,11 +35,75 @@
 }
 
 .caption a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .caption a:hover {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+}
+
+.article-figure {
+  width: auto;
+  height: 300px !important;
+}
+
+.article-new {
+
+  .cover-image-upload {
+    background: image-url("default_article.png") #fff no-repeat center center;
+    // background-size: cover;
+
+
+    // width: 75px;
+    // height: 75px;
+
+    // width: 100%;
+    width: 100%;
+    height: 300px;
+    // margin-left: 15px;
+
+    position: relative;
+    margin-bottom: 20px;
+
+    //ファイルを選択を隠す
+    input {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+      cursor: pointer;
+    }
+  }
+}
+
+.article-edit {
+  background: white !important;
+}
+
+.profile-img-responsive {
+  width: 75px !important;
+  height: 75px !important;
+  border-radius: 7px;
+}
+
+/*-- image preview --------------------------------------------- */
+.image-preview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+.image-preview-article {
+  width: 100%;
+  max-height: 100%;
+  background-size: cover;
 }

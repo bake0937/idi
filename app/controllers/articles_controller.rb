@@ -65,11 +65,11 @@ class ArticlesController < ApplicationController
 
   private
   def create_params
-    params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark ).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark, :figure ).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark ).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark, :figure ).merge(user_id: current_user.id)
   end
 
   #ログインユーザーが他ユーザーの情報を編集するパスを指定した場合はrootへリダイレクトする
