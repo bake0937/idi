@@ -2,9 +2,24 @@
 
 /*navバーにあるロゴの設定*/
 .navbar-brand {
-/*  padding-top: 5px;*/
   background: url("logo.png") no-repeat left center;
   background-size: contain;
+  width: 100px;
+  margin-left: 0px !important;
+}
+
+.avatar{
+  width: 32px;
+  height: 32px;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+.dropdown-toggle{
+  padding: 9px 7px 0px 7px !important;
 }
 
 /*フラッシュメッセージの設定*/
