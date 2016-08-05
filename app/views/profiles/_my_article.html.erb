@@ -1,20 +1,20 @@
-<!-- <div class="row text-center"> -->
-<!--     <div class="col-md-4"> -->
-<div class="thumbnail col-md-3 text-center">
+<div class="col-xs-12 col-sm-3 col-lg-3 col-md-3">
+  <div class="thumbnail">
     <%= link_to article_path(article.id) do %>
-        <img src="http://placehold.it/800x500" alt="">
+      <%= image_tag article.figure.url, class:"my-article-figure" %>
     <% end %>
     <div class="caption">
-    <h4>
+      <h4>
         <span>
-          <%= link_to "#{truncate(article.title, :length => 13)}",article_path(article.id) %>
+        <%= link_to "#{truncate(article.title, :length => 9)}",article_path(article.id) %>
         </span>
-    </h4>
-    <%= simple_format(add_glyphicon_to_category(article)) %>
-    <%= simple_format(truncate(article.detail, :length => 16)) %>
-    <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
-    <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
+      </h4>
+      <%= simple_format(add_glyphicon_to_category(article)) %>
+      <%= simple_format(truncate(article.detail, :length => 14)) %>
+      <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
+      <small>
+        <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
+      </small>
     </div>
+  </div>
 </div>
-    <!-- </div> -->
-<!-- </div> -->
