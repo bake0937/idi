@@ -13,7 +13,7 @@
                 <p class="glyphicon glyphicon-time" >最終更新日:<%= l @article.updated_at, format: :default %></p>
 
                 <% if current_user?(@article.user_id) %>
-                  <%= link_to '編集', edit_article_path(@article.id), class:"glyphicon glyphicon-pencil" %>
+                  <%= link_to '編集', edit_article_path(@article.id), class:"glyphicon glyphicon-edit" %>
                   <%= link_to '削除', article_path, class:"glyphicon glyphicon-trash text-danger", method: :delete, data: { confirm: 'この投稿を削除してもよろしいですか？' } %>
                 <% end %>
 

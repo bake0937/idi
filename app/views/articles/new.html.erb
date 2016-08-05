@@ -42,7 +42,7 @@
 
           <div class="form-group">
             <%= f.label :サービス内容（100字以内）（必須）, autofocus: true %>
-            <%= f.text_area :detail, autofocus: true, class: 'form-control', id: 'message', placeholder:"僕はおにぎりサービスを作ります" , :maxlength => "100", size: "100x2" %>
+            <%= f.text_area :detail, autofocus: true, class: 'form-control', id: 'message', placeholder:"プログラミング学習者がオリジナルのサービスやアプリケーションのアイデアを投稿できるサービスを作りたい" , :maxlength => "100", size: "100x2" %>
             <span class="help-block">
               <p id="characterLeft" class="help-block ">You have reached the limit</p>
             </span>
@@ -50,7 +50,7 @@
 
           <div class="form-group">
             <%= f.label :このサービスをやろうとおもったきっかけ（400字数以内）, autofocus: true %>
-            <%= f.text_area :cue, autofocus: true, class: 'form-control', id: 'message2', placeholder:"やりたかったんだよ!" , :maxlength => "400", size: "100x4" %>
+            <%= f.text_area :cue, autofocus: true, class: 'form-control', id: 'message2', placeholder:"自分が思いついたアイデアが実力に見合っているのかが判断つかない。自分のアイデアに対して様々な人の意見が欲しい。他の人のアイデアを見て、自分のアイデアの参考にしたい。" , :maxlength => "400", size: "100x4" %>
             <span class="help-block">
               <p id="characterLeft2" class="help-block ">You have reached the limit</p>
             </span>
@@ -58,7 +58,7 @@
 
           <div class="form-group">
             <%= f.label :実装したい重要な機能（1000字以内）, autofocus: true %>
-            <%= f.text_area :feature, autofocus: true, class: 'form-control', id: 'message3', placeholder:"おにぎり友達を自動検出する機能" , :maxlength => "1000", size: "100x10" %>
+            <%= f.text_area :feature, autofocus: true, class: 'form-control', id: 'message3', placeholder:"アイデアの編集(投稿・更新・削除・参照)できる機能、アカウント認証機能、マイページ機能" , :maxlength => "1000", size: "100x10" %>
             <span class="help-block">
               <p id="characterLeft3" class="help-block ">You have reached the limit</p>
             </span>
@@ -66,15 +66,15 @@
 
           <div class="form-group">
             <%= f.label :重点的に力をいれてみたいポイント（1000字以内）, autofocus: true %>
-            <%= f.text_area :point, autofocus: true, class: 'form-control', id: 'message4', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
+            <%= f.text_area :point, autofocus: true, class: 'form-control', id: 'message4', placeholder:"コメント機能(投稿したアイデアに対して)は非同期通信(Ajax)を使いたい。ホーム画面にスライドショーを実装したい。" , :maxlength => "1000", size: "100x10" %>
             <span class="help-block">
               <p id="characterLeft4" class="help-block ">You have reached the limit</p>
             </span>
           </div>
 
           <div class="form-group">
-            <%= f.label :皆さんへのメッセージ（1000字以内）, autofocus: true %>
-            <%= f.text_area :remark, autofocus: true, class: 'form-control', id: 'message5', placeholder:"Reactみたいなナウい機能を使いたい" , :maxlength => "1000", size: "100x10" %>
+            <%= f.label :備考欄（1000字以内）, autofocus: true %>
+            <%= f.text_area :remark, autofocus: true, class: 'form-control', id: 'message5', placeholder:"補足したいことやこのアイデアを見ている人に伝えたいことを書いてみよう" , :maxlength => "1000", size: "100x10" %>
             <span class="help-block">
               <p id="characterLeft5" class="help-block ">You have reached the limit</p>
             </span>
