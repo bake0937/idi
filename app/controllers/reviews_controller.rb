@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
   def create
     @review = Review.create(create_params)
-    redirect_to article_path(params[:article_id])
+    @article = Article.find(params[:article_id])
+    @reviews = @article.reviews.joins(:user).includes(:user)
   end
 
   def destroy
