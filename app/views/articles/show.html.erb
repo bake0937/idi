@@ -1,22 +1,14 @@
 <% provide :title, " - #{@article.title} " %>
-
-<!-- Page Content -->
 <div class="container">
     <div class="article">
         <div class="row">
-            <!-- Blog Post Content Column -->
             <div class="col-lg-12">
 
-                <!-- Blog Post -->
-
-                <!-- Title -->
                 <h1><%= @article.title %></h1>
-                <!-- Author -->
                 <p class="lead">
                     投稿者:<%= link_to "#{@article.user.profile.nickname_to_username}", profile_path(@article.user.profile.id) %>
                 </p>
                 <hr>
-                <!-- Date/Time -->
                 <p class="glyphicon glyphicon-time" >投稿日:<%= l @article.created_at, format: :default %></p>
                 <p class="glyphicon glyphicon-time" >最終更新日:<%= l @article.updated_at, format: :default %></p>
 
@@ -50,52 +42,37 @@
                 <p class="lead">皆さんへのメッセージ<%= simple_format(@article.remark) %></p>
                 <hr>
 
-                <!-- Post Comment -->
                 <div class="well""> 
                     <% if current_user %>
                         <div class="form-group">
                             <h4>コメント:</h4>
-                            <%= form_for [@article, @review] do |f| %>
-                                <%= f.text_area :comment, class: 'form-control', size: "100x5" %><br />
+
+                            <%= form_for [@article, @review], remote: true do |f| %>
+                                <%= f.text_area :comment, class: 'form-control', size: "100x5", id: "review_field", required: true %><br />
                                 <%= f.submit "投稿する", class: "btn btn-primary withripple" %>
                             <% end %>
+
                         </div>
                     <% end %>
                 </div>
 
                 <hr>
 
-                <!-- Comment -->
                 <div class="media">
                     <div class="media-body">
                         <div class="comments">
                           <% if @reviews %>
-                            <% @reviews.each do |review| %>
-                                <div class="comment">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                                    </a>
-                                    <small>
-                                        <p class="glyphicon glyphicon-time"><%= l review.created_at, format: :default %>
-                                        </p>
-                                        <% if current_user?(review.user_id) %>
-                                          <%= link_to '削除', article_review_path(@article, review), method: :delete, data: { confirm: 'このコメントを削除してもよろしいですか？'} %>
-                                        <% end %>
-                                    </small>
-                                    <strong>
-                                        <%= link_to simple_format("#{review.user.profile.nickname_to_username}:") , profile_path(review.user.profile.id) %><br />
-                                    </strong>
-                                    <%= simple_format(review.comment) %>
-                                </div>
-                            <% end %>
+                            <%# @reviews.each do |review| %>
+                            <div id="reviews">
+                              <%= render @reviews %>
+                              <%#= render partial: "reviews/review", locals: { reviews: @reviews, article: @article} %>
+                            </div>
+                            <%# end %>
                           <% end %>
                         </div>
-                        <!-- End Nested Comment -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.row -->
     </div>
 </div>
-<!-- /.container -->
