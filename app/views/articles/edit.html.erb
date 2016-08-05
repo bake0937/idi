@@ -1,5 +1,6 @@
 <% provide :title, " - アイデアを編集" %>
 <div class="container">
+  <div class="row article-new">
   <div class="col-xs-8 col-xs-offset-2">
     <div class="form-area">
       <br style="clear:both">
@@ -13,6 +14,13 @@
           <div class="form-group">
             <%= f.label :タイトル（必須）, autofocus: true %>
             <%= f.text_field :title, autofocus: true, class: 'form-control' ,placeholder:"タイトル" , :maxlength=>"20" %>
+          </div>
+
+          イメージ画像(モックアップ、設計図など)<small>画像部分をクリック、または画像をドラックアンドドロップしてください</small>
+          <div class="cover-image-upload image-box article-edit" id="js-main-image">
+            <%= image_tag(@article.figure.url, class: 'img-responsive image-preview-article') %>
+            <%= f.file_field :figure %>
+            <%= f.hidden_field :status, value: "main" %>
           </div>
 
           <div class="form-group">
@@ -47,11 +55,6 @@
             </span>
           </div>
 
-<!--             <div class="form-group">イメージ画像(モックアップ、設計図など)
-            <input type="file" class="form-control" id="image" name="image" size="30">
-          </div>
--->
-
           <div class="form-group">
             <%= f.label :実装したい重要な機能（1000字以内）, autofocus: true %>
             <%= f.text_area :feature, autofocus: true, class: 'form-control', id: 'message3', placeholder:"おにぎり友達を自動検出する機能" , :maxlength => "1000", size: "100x10" %>
@@ -79,6 +82,7 @@
           <%= f.submit class:"btn btn-primary pull-right", value: '更新' %>
         <% end %>
       </div>
+    </div>
     </div>
   </div>
 </div>
