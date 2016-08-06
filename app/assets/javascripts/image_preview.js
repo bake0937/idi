@@ -1,5 +1,5 @@
 $(document).on("ready page:load", function(){
-  const mainImageId = "#js-main-image"
+  const mainImageId = "#js-main-image";
 
   function uploadImage(idName){
     $(idName + ' input[type=file]').change(function(){
@@ -16,11 +16,11 @@ $(document).on("ready page:load", function(){
     var reader = new FileReader();
     reader.onload = function() {
       $(idName + ' img').attr('src', reader.result);
-      $(idName + ' img').addClass("image-preview")
+      $(idName + ' img').addClass("image-preview");
       $('.cover-image-upload').css({'background': 'white'});
-    }
+    };
     reader.readAsDataURL(upfile);
   }
 
   uploadImage(mainImageId);
-})
+});
