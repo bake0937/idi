@@ -1,19 +1,19 @@
-<div>
-  <div>
-    <%= image_tag review.user.profile.avatar.url, class:"review_user_profile_avatar" %>
+<div class="review-content">
+  <div class="media-left">
+    <%= link_to image_tag(review.user.profile.avatar.url, class:"review_user_profile_avatar"), profile_path(review.user.profile.id) %>
   </div>
-  <div>
+  <div class="media-body">
+    <h4 class="media-heading" id="top-aligned-media">
+      <%= link_to simple_format("#{review.user.profile.nickname_to_username}") , profile_path(review.user.profile.id) %>
+    </h4>
     <small>
-      <p class="glyphicon glyphicon-time"><%= l review.created_at, format: :default %>
+      <p class="glyphicon glyphicon-time">
+        <%= l review.created_at, format: :default %>
       </p>
       <% if current_user?(review.user_id) %>
         <%= link_to '削除', article_review_path(@article, review), method: :delete, remote: true, data: { confirm: 'このコメントを削除してもよろしいですか？'} %>
         <% end %>
     </small>
-    <strong>
-      <%= link_to simple_format("#{review.user.profile.nickname_to_username}:") , profile_path(review.user.profile.id) %><br />
-    </strong>
-      <!-- 編集が押されたら、非表示にする -->
       <%= simple_format(review.comment) %>
   </div>
 </div>
