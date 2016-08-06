@@ -4,19 +4,22 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <h1><%= @article.title %></h1>
-                <p class="lead">
-                    投稿者:<%= link_to "#{@article.user.profile.nickname_to_username}", profile_path(@article.user.profile.id) %>
-                </p>
+                <div class="media">
+                    <h1><%= @article.title %></h1>
+                    <div class="media-body">
+                        <p class="lead">
+                            投稿者:<%= link_to "#{@article.user.profile.nickname_to_username}", profile_path(@article.user.profile.id) %>
+                        </p>
+                    </div>
+                </div>
                 <hr>
+
                 <p class="glyphicon glyphicon-time" >投稿日:<%= l @article.created_at, format: :default %></p>
                 <p class="glyphicon glyphicon-time" >最終更新日:<%= l @article.updated_at, format: :default %></p>
-
                 <% if current_user?(@article.user_id) %>
                   <%= link_to '編集', edit_article_path(@article.id), class:"glyphicon glyphicon-edit" %>
                   <%= link_to '削除', article_path, class:"glyphicon glyphicon-trash text-danger", method: :delete, data: { confirm: 'この投稿を削除してもよろしいですか？' } %>
                 <% end %>
-
                 <hr>
 
                 <%= image_tag @article.figure.url, class:"img-responsive responsive-overwrite article-figure" %>
@@ -37,9 +40,10 @@
                 <p class="lead">重点的に力をいれてみたいポイント<%= simple_format(@article.point) %></p>
                 <hr>
 
-                <p class="lead">皆さんへのメッセージ<%= simple_format(@article.remark) %></p>
+                <p class="lead">備考欄<%= simple_format(@article.remark) %></p>
                 <hr>
 
+                <h4>コメント:</h4>
                 <div class="media">
                     <div class="media-body">
                         <div class="comments">
@@ -53,10 +57,10 @@
                 </div>
                 <hr>
 
-                <div class="well""> 
+                <div class="well"">
                     <% if current_user %>
                         <div class="form-group">
-                            <h4>コメント:</h4>
+                            <h4>コメントフォーム:</h4>
                             <%= form_for [@article, @review], remote: true do |f| %>
                                 <%= f.text_area :comment, class: 'form-control', size: "100x5", id: "review_field", required: true %><br />
                                 <%= f.submit "投稿する", class: "btn btn-primary withripple" %>
