@@ -1,4 +1,3 @@
-//入力文字制限の処理
 $(document).ready(function(){
     $('#characterLeft').text('100 characters left');
     $('#message').keydown(function () {
