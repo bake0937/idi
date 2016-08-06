@@ -6,14 +6,14 @@
     <div class="caption">
       <h4>
         <span>
-        <%= link_to "#{truncate(article.title, :length => 12)}",article_path(article.id) %>
+        <%= link_to "#{truncate(article.title, :length => 15)}",article_path(article.id) %>
         </span>
       </h4>
       <%= simple_format(add_glyphicon_to_category(article)) %>
-      <%= simple_format(truncate(article.detail, :length => 15)) %>
+      <%= simple_format(truncate(article.detail, :length => 18)) %>
       <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
       <small>
-        投稿者:<%= link_to "#{article.user.profile.nickname_to_username}", profile_path(article.user.profile.id) %>
+        投稿者:<%= link_to "#{truncate(article.user.profile.nickname_to_username, :length => 15)}", profile_path(article.user.profile.id) %>
         <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
       </small>
     </div>
