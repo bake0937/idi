@@ -13,23 +13,27 @@
               <div class="col-md-6">
                 <%= form_for @profile do |f| %>
 
+                  プロフィール画像<br />
+                  <small>画像部分をクリック、または画像をドラックアンドドロップしてください</small>
                   <div class="cover-image-upload image-box avatar-edit" id="js-main-image" >
                     <%= image_tag(@profile.avatar, class: 'img-responsive profile-img-responsive') %>
                     <%= f.file_field :avatar %>
                     <%= f.hidden_field :status, value: "main" %>
                   </div>
 
-                  <div class="col-lg-6">ニックネーム
-                    <%= f.text_field :nickname, placeholder: "ニックネーム", class: "form-control" %>
+                  <div class="form-group">
+                    ニックネーム
+                      <%= f.text_field :nickname, placeholder: "ニックネーム", class: "form-control" %>
                   </div>
-                  <div class="col-lg-6">一言どうぞ
-                    <%= f.text_field :introduction, placeholder: "一言どうぞ", class: "form-control" %>
+
+                  <div class="form-group">
+                    一言どうぞ
+                      <%= f.text_area :introduction, placeholder: "一言どうぞ", size: "100x3", class: "form-control" %>
                   </div>
 
                   <div class="col-lg-6"><br />
                     <%= f.submit "保存", class: "btn btn-primary withripple" %>
                   </div>
-
                 <% end %>
               </div>
             </div>
