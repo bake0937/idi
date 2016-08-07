@@ -16,7 +16,7 @@
                   プロフィール画像<br />
                   <small>画像部分をクリック、または画像をドラックアンドドロップしてください</small>
                   <div class="cover-image-upload image-box avatar-edit" id="js-main-image" >
-                    <%= image_tag(@profile.avatar, class: 'img-responsive profile-img-responsive') %>
+                    <%= image_tag(image_url(@profile.avatar), class: 'img-responsive profile-img-responsive') %>
                     <%= f.file_field :avatar %>
                     <%= f.hidden_field :status, value: "main" %>
                   </div>

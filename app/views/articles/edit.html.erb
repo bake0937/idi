@@ -18,7 +18,7 @@
 
           イメージ画像(モックアップ、設計図など)<small>画像部分をクリック、または画像をドラックアンドドロップしてください</small>
           <div class="cover-image-upload image-box article-edit" id="js-main-image">
-            <%= image_tag(@article.figure.url, class: 'img-responsive image-preview-article') %>
+            <%= image_tag(image_url(@article.figure.url), class: 'img-responsive image-preview-article') %>
             <%= f.file_field :figure %>
             <%= f.hidden_field :status, value: "main" %>
           </div>

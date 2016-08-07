@@ -24,7 +24,7 @@
           <!-- ドロップダウンのメニュー -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= image_tag current_user.profile.avatar.url, class:"avatar" %>
+              <%= image_tag(image_url(current_user.profile.avatar.url), class:"avatar") %>
             </a>
             <ul class="dropdown-menu">
               <li>

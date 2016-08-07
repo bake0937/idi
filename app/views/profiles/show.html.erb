@@ -5,7 +5,7 @@
         <header class="profile-header">
             <div class="media">
                 <div class="media-left">
-                    <%= image_tag @profile.avatar.url, class:"profile_avatar" %>
+                    <%= image_tag(image_url(@profile.avatar.url), class:"profile_avatar") %>
                 </div>
                 <div class="media-body">
                     <div class="introduction">
