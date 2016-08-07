@@ -12,7 +12,7 @@ CarrierWave.configure do |config|
         config.fog_directory  = 'idi-community'
         config.asset_host = 'https://s3.amazonaws.com/idi-community'
     when 'production'
-        config.fog_directory  = 'ここにバケット名を入れます'
+        config.fog_directory  = 'idi-community'
         config.asset_host = 'https://s3.amazonaws.com/idi-community'
     end
 end
