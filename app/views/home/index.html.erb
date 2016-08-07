@@ -19,35 +19,35 @@
                   <div class="item active">
                     <%= link_to article_path(slide.id) do %>
                       <%= simple_format(slide.title, class:"slide-heading") %>
-                      <%= image_tag slide.figure.url, class:"slide-figure", alt:"First slide" %>
+                      <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"First slide") %>
                     <% end %>
                   </div>
               <% elsif i == 1 %>
                 <div class="item">
                   <%= link_to article_path(slide.id) do %>
                      <%= simple_format(slide.title, class:"slide-heading") %>
-                     <%= image_tag slide.figure.url, class:"slide-figure", alt:"Second slide" %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Second slide") %>
                   <% end %>
                 </div>
               <% elsif i == 2 %>
                 <div class="item">
                   <%= link_to article_path(slide.id) do %>
                      <%= simple_format(slide.title, class:"slide-heading") %>
-                     <%= image_tag slide.figure.url, class:"slide-figure", alt:"Third slide" %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Third slide") %>
                   <% end %>
                 </div>
               <% elsif i == 3 %>
                 <div class="item">
                   <%= link_to article_path(slide.id) do %>
                      <%= simple_format(slide.title, class:"slide-heading") %>
-                     <%= image_tag slide.figure.url, class:"slide-figure", alt:"Fourth slide" %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Fourth slide") %>
                   <% end %>
                 </div>
               <% else %>
                   <div class="item">
                     <%= link_to article_path(slide.id) do %>
                       <%= simple_format(slide.title, class:"slide-heading") %>
-                      <%= image_tag slide.figure.url, class:"slide-figure", alt:"Fifth slide" %>
+                      <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Fifth slide") %>
                     <% end %>
                   </div>
               <% end %>

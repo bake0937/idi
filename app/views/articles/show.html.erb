@@ -22,7 +22,7 @@
                 <% end %>
                 <hr>
 
-                <%= image_tag @article.figure.url, class:"img-responsive responsive-overwrite article-figure" %>
+                <%= image_tag(image_url(@article.figure.url), class:"img-responsive responsive-overwrite article-figure") %>
                 <hr>
 
                 <p class="lead">開発するアプリケーション<%= simple_format(add_glyphicon_to_category(@article)) %></p>

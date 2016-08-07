@@ -23,7 +23,7 @@
                 <hr>
 
                 イメージ画像(モックアップ、設計図など)
-                <%= image_tag @article.figure.url, class:"image-preview-article" %>
+                <%= image_tag(image_url(@article.figure.url), class:"image-preview-article") %>
                 <%= f.hidden_field :figure %>
                 <hr>
 
