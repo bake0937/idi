@@ -79,7 +79,7 @@
             </span>
           </div>
           <%= f.hidden_field :user_id %>
-          <%= f.submit class:"btn btn-primary pull-right", value: '更新' %>
+          <%= f.submit class:"btn btn-primary pull-right", value: '更新', data: {disable_with: 'Sending...'} %>
         <% end %>
       </div>
     </div>

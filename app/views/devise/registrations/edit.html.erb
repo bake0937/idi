@@ -47,7 +47,7 @@
             </div>
 
             <div class="actions">
-              <%= f.submit "更新する" , class: "btn btn-primary withripple" %>
+              <%= f.submit "更新する" , class: "btn btn-primary withripple", data: {disable_with: 'Sending...'} %>
             </div>
           <% end %>
 
@@ -59,7 +59,7 @@
           <span class="glyphicon glyphicon-trash text-danger"></span>退会する
         </div>
         <div class="panel-body">
-          <%= button_to "退会する", registration_path(resource_name), class: "btn btn-primary withripple", data: { confirm: "退会すると二度と戻れません。本当によろしいですか？" }, method: :delete %>
+          <%= button_to "退会する", registration_path(resource_name), class: "btn btn-primary withripple", data: { confirm: "退会すると二度と戻れません。本当によろしいですか？", disable_with: 'Sending...' }, method: :delete %>
 
         </div>
       </div>

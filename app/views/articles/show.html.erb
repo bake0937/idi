@@ -63,7 +63,7 @@
                             <h4>コメントフォーム:</h4>
                             <%= form_for [@article, @review], remote: true do |f| %>
                                 <%= f.text_area :comment, class: 'form-control', size: "100x5", id: "review_field", required: true %><br />
-                                <%= f.submit "投稿する", class: "btn btn-primary withripple" %>
+                                <%= f.submit "投稿する", class: "btn btn-primary withripple", data: {disable_with: 'Sending...'} %>
                             <% end %>
                         </div>
                     <% end %>
