@@ -1,70 +1,69 @@
-<% provide :title, " - サインアップ" %>
-<div class="container">
-  <div class="row">
+<% provide :title, " - 設定" %>
+<div class ="registrations-edit">
+  <div class="container">
+    <div class="row">
 
-    <%= render partial: 'common/sidebar' %>
+      <%= render partial: 'common/sidebar' %>
 
-    <div class="col-sm-9 col-md-9">
-      <div class="panel panel-default ">
-        <div class="panel-heading">
-          <span class="glyphicon glyphicon-wrench"></span>
-          アカウント設定
-        </div>
-        <div class="panel-body">
+      <div class="col-sm-9 col-md-9">
+        <div class="panel panel-default ">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-wrench"></span>
+            アカウント設定
+          </div>
+          <div class="panel-body">
 
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
 
 
-            <div class="field sign-in-up-form_item">
-              <%= f.label :ユーザー名 %><br />
-              <%= f.text_field :username, autofocus: true, pattern:"[a-zA-Z0-9_]{4,20}" , required:true %>
+              <div class="field sign-in-up-form_item">
+                <%= f.label :ユーザー名 %><br />
+                <%= f.text_field :username, autofocus: true, pattern:"[a-zA-Z0-9_]{4,20}" , required:true %>
 
-            </div>
+              </div>
 
-            <div class="field sign-in-up-form_item">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
-            </div>
+              <div class="field sign-in-up-form_item">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
 
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="field sign-in-up-form_item">
+                <%= f.label :新しいパスワード %> <i>(パスワードを変更しない場合は、空白にしてください)</i><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field sign-in-up-form_item">
+                <%= f.label :新しいパスワードの確認 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+
+              <div class="field sign-in-up-form_item">
+                <%= f.label :現在のパスワード %> <i>ユーザー情報(ユーザー名、メールアドレス、パスワード)の変更時に入力が必要です</i><br />
+                <%= f.password_field :current_password, autocomplete: "off" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "更新する" , class: "btn btn-primary withripple", data: {disable_with: 'Sending...'} %>
+              </div>
             <% end %>
 
-            <div class="field sign-in-up-form_item">
-              <%= f.label :新しいパスワード %> <i>(パスワードを変更しない場合は、空白にしてください)</i><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
+          </div>
+        </div>
 
-            <div class="field sign-in-up-form_item">
-              <%= f.label :新しいパスワードの確認 %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            </div>
-
-            <div class="field sign-in-up-form_item">
-              <%= f.label :現在のパスワード %> <i>ユーザー情報(ユーザー名、メールアドレス、パスワード)の変更時に入力が必要です</i><br />
-              <%= f.password_field :current_password, autocomplete: "off" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "更新する" , class: "btn btn-primary withripple", data: {disable_with: 'Sending...'} %>
-            </div>
-          <% end %>
-
+        <div class="panel panel-default ">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-trash text-danger"></span>退会する
+          </div>
+          <div class="panel-body">
+            <%= button_to "退会する", registration_path(resource_name), class: "btn btn-primary withripple", data: { confirm: "退会すると二度と戻れません。本当によろしいですか？", disable_with: 'Sending...' }, method: :delete %>
+          </div>
         </div>
       </div>
-
-      <div class="panel panel-default ">
-        <div class="panel-heading">
-          <span class="glyphicon glyphicon-trash text-danger"></span>退会する
-        </div>
-        <div class="panel-body">
-          <%= button_to "退会する", registration_path(resource_name), class: "btn btn-primary withripple", data: { confirm: "退会すると二度と戻れません。本当によろしいですか？", disable_with: 'Sending...' }, method: :delete %>
-
-        </div>
-      </div>
-
-
     </div>
   </div>
 </div>
