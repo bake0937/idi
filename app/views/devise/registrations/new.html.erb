@@ -1,73 +1,164 @@
-<% provide :title, " - Sign up" %>
-<div class="container">
-  <!-- ロゴを表示 -->
-  <%= render partial: 'common/login_logo' %>
-  <div class="row">
-    <div class="col-md-6">
-      <h1 class='<%= "#{controller.controller_name}-h1" %>'>iDi(アイディ)へようこそ!</h1>
-      <h2 class='<%= "#{controller.controller_name}-h2" %>'>iDi(intermediate Development ideas)は、こんなサービス作ってみたい!っていう人のためのアイデア投稿サービスです</h2>
-    </div>
-  </div>
+<% provide :title, " - 新規会員登録" %>
+<div class ="registrations-new">
+    <div class="cover">
 
-  <div class="row">
-    <div class="col-md-5 col-md-offset-7">
-      <div class="signin-signup-panel">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span class="glyphicon glyphicon-lock"></span> Sign up
-          </div>
+        <!-- sign up用のヘッダーを表示 -->
+        <%= render partial: 'common/sign_up_header' %>
 
-          <div class="panel-body">
+        <div class="jumbotron jumbotron-sign-up" id="signup-home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12 text-center">
+                        <h1 class="text-left">思いつきから始まる</h1>
+                        <p class="text-left">あなたの生活で「あったら良いな!」と思うアプリやWebサービス &nbsp;
+                        <br>もっとカタチにしてみませんか</p>
+                    </div>
 
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-            class:"form-horizontal", role:"form") do |f| %>
+                    <div class="col-md-5 col-xs-12">
+                        <div class="signin-signup-panel">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span class="glyphicon glyphicon-lock"></span>新規会員登録
+                                </div>
 
-              <%= devise_error_messages! %>
+                                <div class="panel-body">
 
+                                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+                                    class:"form-horizontal", role:"form") do |f| %>
 
-              <div class="form-group">
-                <div class="col-sm-12 sign-in-up-form_item">
-                  <%= f.text_field :username, autofocus: true, class: 'form-control' ,placeholder:"ユーザー名(半角英数字・記号(_)4~20文字)" , pattern:"[a-zA-Z0-9_]{4,20}" , required:true %>
+                                        <%= devise_error_messages! %>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-12 col-xs-12 sign-in-up-form_item">
+                                                <%= f.text_field :username, autofocus: true, class: 'form-control' ,placeholder:"ユーザー名(半角英数字・記号(_)4~20文字)" , pattern:"[a-zA-Z0-9_]{4,20}" , required:true %>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-12 sign-in-up-form_item">
+                                                <%= f.email_field :email, autofocus: true, id:"inputEmail3", class: 'form-control' ,placeholder:"Email" ,required:true %>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-12 sign-in-up-form_item">
+                                                <% if @validatable %>
+                                                <em>(<%= @minimum_password_length %> 文字以上)</em>
+                                                <% end %>
+                                                <%= f.password_field :password, autocomplete: 'off', id:"inputPassword3", class: 'form-control', placeholder:"Password" ,required:true%>
+                                            </div>
+                                        </div>
+
+                                        <div class='form-group'>
+                                            <div class="col-sm-12 sign-in-up-form_item">
+                                                <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' ,placeholder:"Password Confirmation"%>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group last">
+                                            <div class='actions'>
+                                                <div class="col-sm-12">
+                                                    <%= f.submit class: 'btn btn-success btn-sm sign-in-up-btn', value: '登録', data: {disable_with: 'Sending...'} %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div class="panel-footer">
+                                    <%= render "devise/shared/links" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <div class="col-sm-12 sign-in-up-form_item">
-                  <%= f.email_field :email, autofocus: true, id:"inputEmail3", class: 'form-control' ,placeholder:"Email" ,required:true %>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="col-sm-12 sign-in-up-form_item">
-                  <% if @validatable %>
-                  <em>(<%= @minimum_password_length %> 文字以上)</em>
-                  <% end %>
-                  <%= f.password_field :password, autocomplete: 'off', id:"inputPassword3", class: 'form-control', placeholder:"Password" ,required:true%>
-                </div>
-
-              </div>
-
-              <div class='form-group'>
-                <div class="col-sm-12 sign-in-up-form_item">
-                  <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' ,placeholder:"Password Confirmation"%>
-                </div>
-              </div>
-
-              <div class="form-group last">
-                <div class='actions'>
-                  <div class="col-sm-12">
-                    <%= f.submit class: 'btn btn-success btn-sm sign-in-up-btn', value: 'Sign up', data: {disable_with: 'Sending...'} %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="panel-footer">
-            <%= render "devise/shared/links" %>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+
+    <div class="signup-introduction section-danger" id="signup-introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <h1>iDi(アイディ)とは</h1>
+                    <h3>「あったら良いな!」で終わっていませんか?</h3>
+                    <p>アプリやWebサービスにおいてアイデアは非常に大切な要素の一つです。そんなアイデアは一部の専門家のみが持っているわけではありません。誰もが日々生活をしている中でふとした「思いつき」がきっかけでアイデアに繋がることがあります。しかし、多くの人は「あったら良いな!」と思うだけでいつの間にか忘れてしまうのではないかと思い、このサービスを立ち上げました。 &nbsp;
+                    <br>
+                    <br>iDi(アイディ)はそんな「あったら良いな!」という思いつきを気軽に投稿するサービスです。</p>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <%= image_tag 'example.jpg', class:"img-responsive" %>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="sign-up-feature text-center text-xs-center" id="signup-feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <h1>iDiでできること</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-edit"></i>
+                    <h2>アイデアを投稿する</h2>
+                    <p class="text-left">投稿フォームの質問に従って、アプリやWebサービスのアイデアを投稿してみましょう。全ての質問に答える必要はありません。まずは気軽に投稿してみましょう。</p>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success s-o fa-comments"></i>
+                    <h2>コメント</h2>
+                    <p class="text-left">投稿されたアイデアにコメントをしてみましょう。コメントをすることで自分のアイデアが広がるきっかけになるかもしれません。</p>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw fa-lightbulb-o m-y-1 m-y-lg text-success"></i>
+                    <h2>アイデアを見る</h2>
+                    <p class="text-left">アイデアが思い浮かばない人は 他の人のアイデアを見てみましょう。 自分のアイデアの参考になると思います。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sign-up-target text-center text-xs-center" id="signup-target">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <h1>こんな人にオススメ</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-file-code-o"></i>
+                    <h2>アプリやWebサービスをこれから開発する</h2>
+                    <p>アプリやWebサービスのアイデアは決めたけど、まずは様々な人からのフォードバッグを貰ってから開発したい!</p>
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-question"></i>
+                    <h2>何か作りたい! &nbsp;
+                    <br>でもアイデアが無い!!</h2>
+                    <p>プログラミングの勉強が一通り終わり、アプリやWebサービスを作りたい!でもアイデアが思いつかない!&nbsp;</p>
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-child"></i>
+                    <h2>プログラミングの知識は
+                    <br>無いけどアイデアはある</h2>
+                    <p>プログラミングの知識はあまり無いけど、 アプリやWebサービスのアイデアあるから投稿したい!&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cover">
+        <div class="jumbotron jumbotron-get-it-now">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 text-center">
+                        <h1 class="text-muted">その「思いつき」まずは投稿してみよう</h1>
+                        <p>どんなアプリやWebサービスも、ふとした「思いつき」から始まる
+                        <br>&nbsp; そのはじめの一歩を踏み出してみませんか</p>
+                        <a class="btn btn-lg btn-primary" href="#signup-home">新規会員登録</a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
 </div>
