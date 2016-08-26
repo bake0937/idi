@@ -1,4 +1,121 @@
-/*アカウント設定 registration#edit 設定*/
+.registrations {
+  padding-top: 0px;
+  .registrations-new {
+    .row {
+      padding-top: 100px;
+    }
+    .jumbotron-sign-up {
+
+    // resistrations/newのページ上部の画像
+    background: image-url("back.jpg");
+    background-size: cover;
+    height: auto;
+    margin-bottom: 0 !important;
+    padding-bottom: 128px !important;
+
+    h1 {
+      color: #ffffff !important;
+    }
+    p {
+      color: #ffffff;
+    }
+      .col-md-5 {
+        padding-left: 50px;
+      }
+
+    }
+
+    .sign-up-nav {
+    margin-bottom: 0px !important;
+    }
+
+    .signup-introduction {
+    color: #ffffff;
+    background-color: #d9534f;
+    background-size: cover;
+    // height: 576px;
+    height: auto;
+    margin-bottom: 0 !important;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+     .col-md-6 {
+        margin-bottom: 50px;
+        .img-responsive {
+          margin-bottom: 50px;
+        }
+      }
+
+    }
+
+    .sign-up-feature {
+      height: auto;
+      background-color: #ffffff;
+      background-size: cover;
+      // height: 496px;
+      padding-bottom: 84px ;
+
+      .row {
+        padding-top: 50px;
+
+        .col-md-4 {
+          .fa-edit {
+          padding-bottom: 40px;
+          }
+          .fa-comments {
+          padding-bottom: 40px;
+          }
+          .fa-lightbulb-o {
+          padding-bottom: 40px;
+          }
+        }
+      }
+    }
+
+    .sign-up-target {
+      // height: 496px;
+      height: auto;
+      background-color : #f7f7f9;
+      padding-bottom: 84px ;
+
+      .row {
+        padding-top: 50px;
+
+        .col-md-4 {
+          .fa-file-code-o {
+          padding-bottom: 40px;
+          }
+          .fa-question {
+          padding-bottom: 40px;
+          }
+          .fa-child {
+          padding-bottom: 40px;
+          }
+        }
+      }
+    }
+
+    .jumbotron-get-it-now {
+
+      margin-bottom: 0 !important;
+      // height: 678px;
+      .col-md-12 {
+      padding-top: 185px;
+      padding-bottom: 185px;
+      }
+    }
+
+
+  }
+}
+
+// resistrations/newのページ上部の画像
+.jumbotron-get-it-now {
+  background: image-url("get_it_now.jpg");
+  background-size: cover;
+  height: auto;
+}
+
 
   /*body{margin-top:50px;}*/
   .glyphicon { margin-right:10px; }
@@ -49,3 +166,4 @@
     margin-left: 85px;
   }
 }
+
