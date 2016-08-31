@@ -29,7 +29,7 @@
 
         <div class="row">
             <% @articles.each do |article| %>
-              <%= render partial: "home/article", locals: { article: article } %>
+              <%= render partial: "common/article", locals: { article: article } %>
             <% end %>
         </div>
     </div>
