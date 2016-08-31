@@ -6,6 +6,51 @@
   padding: 20px;
   /*透明度*/
   opacity: 0.9;
+
+  .article-thumbnail {
+      height: 195px;
+      width: 262.5px;
+  }
+
+  .article-content {
+    .thumbnail {
+       // padding: 0;
+      display: block;
+      margin-bottom: 20px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      -webkit-transition: border 0.2s ease-in-out;
+      -o-transition: border 0.2s ease-in-out;
+      transition: border 0.2s ease-in-out;
+      border-radius: 0 ;
+      padding: 0 ;
+      background: cover;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .article-meta {
+      overflow: hidden;
+      font-size: 1.2rem;
+      padding: 10px 0;
+
+      .article-user {
+        float: left;
+        p {
+          font-size: 16px;
+        }
+      }
+
+      .article-posted {
+        float: left;
+      }
+    }
+  }
+
 }
 
 .profile_avatar {
