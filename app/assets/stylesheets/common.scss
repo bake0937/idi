@@ -71,6 +71,15 @@ body {
     margin: 0 auto;
 }
 
+.text-abbreviation {
+  display: block;
+  white-space: nowrap;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis; /* Opera9,10対応 */
+}
+
 /*フッターの設定*/
 footer {
     bottom: 0;

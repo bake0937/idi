@@ -36,12 +36,6 @@
 
 .caption a {
   text-decoration: none;
-  color: black;
-}
-
-.caption a:hover {
-  text-decoration: none;
-  color: black;
 }
 
 .article-figure {
@@ -53,16 +47,8 @@
 
   .cover-image-upload {
     background: image-url("default_article.png") #fff no-repeat center center;
-    // background-size: cover;
-
-
-    // width: 75px;
-    // height: 75px;
-
-    // width: 100%;
     width: 100%;
     height: 300px;
-    // margin-left: 15px;
 
     position: relative;
     margin-bottom: 20px;
