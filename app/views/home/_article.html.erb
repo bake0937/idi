@@ -1,21 +1,21 @@
-<div class="col-xs-12 col-sm-3 col-lg-3 col-md-3">
+<div class="col-sm-4 col-md-3 article-content">
   <div class="thumbnail">
     <%= link_to article_path(article.id) do %>
-      <%= image_tag(image_url(article.figure.url), class:"home-figure") %>
+      <%= image_tag(image_url(article.figure.url), class:"article-thumbnail") %>
     <% end %>
     <div class="caption">
-      <h4>
-        <span>
-        <%= link_to "#{truncate(article.title, length: 13)}",article_path(article.id) %>
-        </span>
-      </h4>
-      <%= simple_format(add_glyphicon_to_category(article)) %>
-      <%= simple_format(truncate(article.detail, length: 18)) %>
-      <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
-      <small>
-        投稿者:<%= link_to "#{truncate(article.user.profile.nickname_to_username, :length => 15)}", profile_path(article.user.profile.id) %>
-        <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
-      </small>
+      <h3>
+        <%= link_to article.title, article_path(article.id), class:"text-abbreviation" %>
+      </h3>
+      <div class="article-meta">
+        <%= simple_format(add_glyphicon_to_category(article)) %>
+        <%= simple_format(article.detail, class:"text-abbreviation") %>
+        投稿者:<%= link_to article.user.profile.nickname_to_username, profile_path(article.user.profile.id), class:"text-abbreviation" %>
+        <div class="article-posted">
+          <%= simple_format("#{article.reviews.joins(:user).count}", class:"glyphicon glyphicon-comment") %>
+          <p class="glyphicon glyphicon-time"><%= l article.updated_at, format: :default %></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
