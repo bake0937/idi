@@ -7,8 +7,12 @@
     .jumbotron-sign-up {
 
     // resistrations/newのページ上部の画像
-    background: image-url("back.jpg");
+    background: image-url("sign_up_form.jpg");
     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
     height: auto;
     margin-bottom: 0 !important;
     padding-bottom: 128px !important;
