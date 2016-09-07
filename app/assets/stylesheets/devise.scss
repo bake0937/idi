@@ -17,11 +17,19 @@
     margin-bottom: 0 !important;
     padding-bottom: 128px !important;
 
-      h1 {
-        color: #ffffff !important;
-      }
-      p {
-        color: #ffffff;
+      .sign-up-home {
+        margin-top: 80px;
+        margin-bottom: 40px;
+
+        h1 {
+          color: #ffffff !important;
+          margin-bottom: 40px;
+        }
+
+        p {
+          margin-bottom: 5px;
+          color: #ffffff;
+        }
       }
     }
 
