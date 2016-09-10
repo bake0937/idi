@@ -7,17 +7,29 @@
     .jumbotron-sign-up {
 
     // resistrations/newのページ上部の画像
-    background: image-url("back.jpg");
+    background: image-url("sign_up_form.jpg");
     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
     height: auto;
     margin-bottom: 0 !important;
     padding-bottom: 128px !important;
 
-      h1 {
-        color: #ffffff !important;
-      }
-      p {
-        color: #ffffff;
+      .sign-up-home {
+        margin-top: 80px;
+        margin-bottom: 40px;
+
+        h1 {
+          color: #ffffff !important;
+          margin-bottom: 40px;
+        }
+
+        p {
+          margin-bottom: 5px;
+          color: #ffffff;
+        }
       }
     }
 
@@ -32,8 +44,32 @@
       // height: 576px;
       height: auto;
       margin-bottom: 0 !important;
-      padding-top: 50px;
-      padding-bottom: 50px;
+
+    .summary {
+          margin-top: 50px;
+      h1 {
+        text-align: center;
+      }
+      .phrase {
+        margin: 50px auto;
+        text-align: center;
+        font-weight: 600;
+      }
+      .explain {
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+     .summary {
+       margin-top: 0px;
+     }
+    }
+
+      p {
+        font-size: 16px;
+      }
 
      .col-md-6 {
         margin-bottom: 50px;
@@ -51,12 +87,17 @@
       // height: 496px;
       padding-bottom: 84px ;
 
+      p {
+        font-size: 16px;
+      }
+
       .row {
         padding-top: 50px;
 
         .col-md-4 {
           .text-left {
             margin-bottom: 50px;
+            margin-top: 20px;
           }
         }
       }
@@ -68,12 +109,17 @@
       background-color : #f7f7f9;
       padding-bottom: 84px ;
 
+      p {
+        font-size: 16px;
+      }
+
       .row {
         padding-top: 50px;
 
         .col-md-4 {
           .text-left {
             margin-bottom: 50px;
+            margin-top: 20px;
           }
         }
       }
@@ -86,6 +132,12 @@
       .col-md-12 {
       padding-top: 185px;
       padding-bottom: 185px;
+        p {
+          margin-top: 20px;
+        }
+        .btn-primary {
+          padding: 20px 30px;
+        }
       }
     }
 

@@ -8,10 +8,10 @@
         <div class="jumbotron jumbotron-sign-up" id="signup-home">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7 col-xs-12 text-center">
-                        <h1 class="text-left">思いつきから始まる</h1>
-                        <p class="text-left">あなたの生活で「あったら良いな!」と思うアプリやWebサービス &nbsp;
-                        <br>もっとカタチにしてみませんか</p>
+                    <div class="col-md-7 col-xs-12 text-center sign-up-home">
+                        <h1>思いつきを投稿しよう</h1>
+                        <p>あなたのアプリ・Webサービスのアイデアに</p>
+                        <p>みんながコメントできるコミュニティ</p>
                     </div>
 
                     <div class="col-md-5 col-xs-12">
@@ -78,12 +78,16 @@
     <div class="signup-introduction section-danger" id="signup-introduction">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-6 col-xs-12 summary">
                     <h1>iDi(アイディ)とは</h1>
-                    <h3>「あったら良いな!」で終わっていませんか?</h3>
-                    <p>アプリやWebサービスにおいてアイデアは非常に大切な要素の一つです。そんなアイデアは一部の専門家のみが持っているわけではありません。誰もが日々生活をしている中でふとした「思いつき」がきっかけでアイデアに繋がることがあります。しかし、多くの人は「あったら良いな!」と思うだけでいつの間にか忘れてしまうのではないかと思い、このサービスを立ち上げました。 &nbsp;
-                    <br>
-                    <br>iDi(アイディ)はそんな「あったら良いな!」という思いつきを気軽に投稿するサービスです。</p>
+                    <div class="phrase">
+                        <p>「作りたいWebサービスがあるんだけど、どうやって実現するんだろう」</p>
+                        <p>「アプリのアイデアがひらめいたから、他の人の意見を聞いてみたい」</p>
+                    </div>
+                    <div class="explain">
+                        <p>iDiはそんなプログラミングを学ぶ人が</p>
+                        <p>ふと思いついたアイデアをみんなでより良くするコミュニティです</p>
+                    </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <%= image_tag 'example.jpg', class:"img-responsive" %>
@@ -101,18 +105,18 @@
             <div class="row">
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-edit"></i>
-                    <h2>アイデアを投稿する</h2>
-                    <p class="text-left">投稿フォームの質問に従って、アプリやWebサービスのアイデアを投稿してみましょう。全ての質問に答える必要はありません。まずは気軽に投稿してみましょう。</p>
+                    <h2>アイデアを投稿</h2>
+                    <p class="text-left">思いついたアイデアを気軽に投稿してみましょう。全ての質問に答える必要はありません。</p>
                 </div>
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success s-o fa-comments"></i>
-                    <h2>コメント</h2>
-                    <p class="text-left">投稿されたアイデアにコメントをしてみましょう。コメントをすることで自分のアイデアが広がるきっかけになるかもしれません。</p>
+                    <h2>アイデアにコメント</h2>
+                    <p class="text-left">みんなのアイデアにコメントをしてみましょう。自分のアイデアが広がるきっかけになるかもしれません。</p>
                 </div>
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw fa-lightbulb-o m-y-1 m-y-lg text-success"></i>
                     <h2>アイデアを見る</h2>
-                    <p class="text-left">アイデアが思い浮かばない人は 他の人のアイデアを見てみましょう。 自分のアイデアの参考になると思います。</p>
+                    <p class="text-left">アイデアが思い浮かばない人はみんなのアイデアを見てみましょう。自分のアイデアの参考になります。</p>
                 </div>
             </div>
         </div>
@@ -127,22 +131,21 @@
             <div class="row">
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-file-code-o"></i>
-                    <h2>アプリやWebサービスをこれから開発する</h2>
-                    <p class="text-left">アプリやWebサービスのアイデアは決めたけど、まずは様々な人からのフォードバッグを貰ってから開発したい!</p>
+                    <h2>アプリ・Webサービスをこれから開発する</h2>
+                    <p class="text-left">アイデアは考えたけど、様々な人から意見を貰って開発したい人</p>
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-question"></i>
-                    <h2>何か作りたい! &nbsp;
-                    <br>でもアイデアが無い!!</h2>
-                    <p class="text-left">プログラミングの勉強が一通り終わり、アプリやWebサービスを作りたい!でもアイデアが思いつかない!&nbsp;</p>
+                    <h2>何か作りたい!
+                    <br>でもアイデアが無い!</h2>
+                    <p class="text-left">アプリ・Webサービスのアイデアが思いつかないので、他の人のアイデアを参考にしたい人</p>
                 </div>
 
                 <div class="col-md-4 col-xs-12">
                     <i class="fa fa-5x fa-fw m-y-1 m-y-lg text-success fa-child"></i>
-                    <h2>プログラミングの知識は
-                    <br>無いけどアイデアはある</h2>
-                    <p class="text-left">プログラミングの知識はあまり無いけど、 アプリやWebサービスのアイデアあるから投稿したい!&nbsp;</p>
+                    <h2>これからプログラミングを学ぶ</h2>
+                    <p class="text-left">これからプログラミングを学ぶけれど、アイデアはある人</p>
                 </div>
             </div>
         </div>
@@ -153,8 +156,8 @@
                 <div class="row">
                     <div class="col-md-12 col-xs-12 text-center">
                         <h1 class="text-muted">その「思いつき」まずは投稿してみよう</h1>
-                        <p>どんなアプリやWebサービスも、ふとした「思いつき」から始まる
-                        <br>&nbsp; そのはじめの一歩を踏み出してみませんか</p>
+                        <p>どんなアプリ・Webサービスも、ふとした「思いつき」から始まる
+                        <br>そのはじめの一歩を踏み出してみませんか</p>
                         <a class="btn btn-lg btn-primary" href="#signup-home">新規会員登録</a>
                     </div>
                  </div>
