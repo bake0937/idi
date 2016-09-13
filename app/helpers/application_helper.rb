@@ -34,7 +34,7 @@ module ApplicationHelper
     site = options[:site]
     title = options[:title]
     description = options[:description]
-    image = options[:image].presence || image_url('logo.png')
+    image = options[:image].presence || image_url('ogp_logo.png')
 
     configs = {
       separator: '-',
