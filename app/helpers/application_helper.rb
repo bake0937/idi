@@ -20,6 +20,13 @@ module ApplicationHelper
     end
   end
 
+  def show_meta_tags
+    if display_meta_tags.blank?
+      assign_meta_tags
+    end
+    display_meta_tags
+  end
+
   def assign_meta_tags(options = {})
     defaults = t('meta_tags.defaults')
     options.reverse_merge!(defaults)
