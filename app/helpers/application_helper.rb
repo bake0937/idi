@@ -20,4 +20,33 @@ module ApplicationHelper
     end
   end
 
+  def assign_meta_tags(options = {})
+    defaults = t('meta_tags.defaults')
+    options.reverse_merge!(defaults)
+
+    site = options[:site]
+    title = options[:title]
+    description = options[:description]
+    image = options[:image].presence || image_url('logo.png')
+
+    configs = {
+      separator: '-',
+      reverse: true,
+      site: site,
+      title: title,
+      description: description,
+      canonical: request.original_url,
+      og: {
+        type: 'article',
+        title: title.presence || site,
+        description: description,
+        url: request.original_url,
+        image: image,
+        site_name: 'iDi(アイディ)'
+      }
+    }
+
+    set_meta_tags(configs)
+  end
+
 end
