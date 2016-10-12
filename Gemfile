@@ -41,7 +41,7 @@ group :development, :test do
 end
 
 group :test do
-
+  gem "faker", "~> 1.4.3"
 
 end
 
