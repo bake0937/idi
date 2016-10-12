@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.4.0.1)
       execjs
@@ -237,6 +238,8 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -394,6 +397,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   kaminari
+  launchy (~> 2.4.2)
   meta-tags
   mysql2 (= 0.3.18)
   paranoia (~> 2.0)
