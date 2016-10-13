@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :correct_user, only: [:edit, :update]
-  before_action :current_article, only: [:show, :edit, :update]
+  before_action :current_article, only: [:show, :edit, :update, :destroy]
 
   def show
     @review = Review.new
@@ -45,10 +45,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:id])
-      if article.user_id == current_user.id
-        article.destroy
-      end
+    if @article.user_id == current_user.id
+        @article.destroy
+    end
     redirect_to controller: :home, action: :index
     flash[:success] = '投稿を削除しました'
   end
