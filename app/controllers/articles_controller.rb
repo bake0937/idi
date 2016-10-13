@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
     @review = Review.new
