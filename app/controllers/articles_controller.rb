@@ -78,4 +78,9 @@ class ArticlesController < ApplicationController
       redirect_to(root_path) unless current_user?(@article.user_id)
   end
 
+  #選択したarticleのインスタンスを取得
+  def current_article
+      @article = Article.find(params[:id])
+  end
+
 end
