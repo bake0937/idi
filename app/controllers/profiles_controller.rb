@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     #プロフィールに紐づくユーザー情報を取得
     user = @profile.user
-    @articles = Article.where(user_id: user.id).order("articles . updated_at DESC").page(params[:page]).per(8)
+    @articles = Article.where(user_id: user.id).order("articles . updated_at DESC").includes(:user).page(params[:page]).per(8)
   end
 
   def edit
