@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
 
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :current_article, only: [:show, :edit, :update, :destroy]
 
   def show
     @review = Review.new
-    @article = Article.find(params[:id])
     #退会したユーザーのレビューは表示させない
     @reviews = @article.reviews.joins(:user).includes(:user)
   end
@@ -30,12 +30,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-
-    @article = Article.find(params[:id])
     @article.update(update_params)
 
     if @article.save
@@ -48,10 +45,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:id])
-      if article.user_id == current_user.id
-        article.destroy
-      end
+    if @article.user_id == current_user.id
+        @article.destroy
+    end
     redirect_to controller: :home, action: :index
     flash[:success] = '投稿を削除しました'
   end
@@ -76,6 +72,11 @@ class ArticlesController < ApplicationController
   def correct_user
       @article = Article.find(params[:id])
       redirect_to(root_path) unless current_user?(@article.user_id)
+  end
+
+  #選択したarticleのインスタンスを取得
+  def current_article
+      @article = Article.find(params[:id])
   end
 
 end
