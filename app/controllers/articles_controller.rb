@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :correct_user, only: [:edit, :update]
-  before_action :current_article, only: [:show, :edit]
+  before_action :current_article, only: [:show, :edit, :update]
 
   def show
     @review = Review.new
@@ -33,8 +33,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-
-    @article = Article.find(params[:id])
     @article.update(update_params)
 
     if @article.save
