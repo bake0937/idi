@@ -14,8 +14,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
-    # @article = Article.create
     @article = Article.new(create_params)
 
     if params[:back]
