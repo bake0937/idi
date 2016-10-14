@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
-  before_action :correct_user, only: [:edit, :update]
   before_action :current_article, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
     @review = Review.new
@@ -14,8 +14,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
-    # @article = Article.create
     @article = Article.new(create_params)
 
     if params[:back]
@@ -70,8 +68,7 @@ class ArticlesController < ApplicationController
 
   #ログインユーザーが他ユーザーの情報を編集するパスを指定した場合はrootへリダイレクトする
   def correct_user
-      @article = Article.find(params[:id])
-      redirect_to(root_path) unless current_user?(@article.user_id)
+    redirect_to(root_path) unless current_user?(@article.user_id)
   end
 
   #選択したarticleのインスタンスを取得
