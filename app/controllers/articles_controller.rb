@@ -50,13 +50,6 @@ class ArticlesController < ApplicationController
     flash[:success] = '投稿を削除しました'
   end
 
-  def confirm
-    #POSTされたパラメータを取得
-    @article = Article.new(create_params)
-    #validetesをチェックし、NGなら戻す
-    render :new if @article.invalid?
-  end
-
   private
   def create_params
     params.require(:article).permit(:title, :category, :detail, :cue, :feature, :point, :remark, :figure ).merge(user_id: current_user.id)
