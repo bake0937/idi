@@ -262,6 +262,7 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     mysql2 (0.3.18)
+    newrelic_rpm (3.17.0.325)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -416,6 +417,7 @@ DEPENDENCIES
   launchy (~> 2.4.2)
   meta-tags
   mysql2 (= 0.3.18)
+  newrelic_rpm
   paranoia (~> 2.0)
   paranoia_uniqueness_validator
   pry-byebug
