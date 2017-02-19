@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
       validates_length_of       :password, within: password_length, allow_blank: true
     end
   end
+  # サーバーが高負荷時などに、ユーザーが2度押したことで同じ値がDBに登録されてしまうのを防止
   validates :email, uniqueness_without_deleted: true
 
   #サインイン認証条件を書き換え
