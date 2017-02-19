@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
 
   #論理削除
   acts_as_paranoid
-  #退会したユーザが、退会した時と同じメールアドレスで登録できるようにするため、オーバライドしてユニーク制約だけを削除する
+  # 削除済のユーザーと同じemailを登録するとユニーク制約でエラーになるため
+  # オーバライドをすることでユニーク制約だけを削除する
   def self.included(base)
     base.extend ClassMethods
     assert_validations_api!(base)
