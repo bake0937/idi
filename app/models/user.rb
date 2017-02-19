@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   # サーバーが高負荷時などに、ユーザーが2度押したことで同じ値がDBに登録されてしまうのを防止
   validates :email, uniqueness_without_deleted: true
 
-  #サインイン認証条件を書き換え
+  # usernamteまたはメールアドレスでログインできるように認証条件を書き換え
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
