@@ -13,6 +13,7 @@ $(document).on("ready page:load", function () {
     });
   }
 
+  // アップロードする画像をプレビュー
   function setImage(upfile, idName) {
     var reader = new FileReader();
     reader.onload = function () {
