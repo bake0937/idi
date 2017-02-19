@@ -1,6 +1,7 @@
 $(document).on("ready page:load", function () {
   var mainImageId = "#js-main-image";
 
+  // アップロードする画像を選択
   function uploadImage(idName) {
     $(idName + ' input[type=file]').change(function () {
       var upfile = $(this).prop('files')[0];
@@ -12,6 +13,7 @@ $(document).on("ready page:load", function () {
     });
   }
 
+  // アップロードする画像をプレビュー
   function setImage(upfile, idName) {
     var reader = new FileReader();
     reader.onload = function () {

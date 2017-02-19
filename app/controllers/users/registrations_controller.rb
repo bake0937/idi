@@ -23,6 +23,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
+  # アカウントを退会する際、usernameに削除した日時を文字連結することで
+  # 同じusernameで登録しようとした場合のユニーク制約を回避する
   def destroy
     super
     resource.destroy

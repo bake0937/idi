@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
 
   #論理削除
   acts_as_paranoid
-  #退会したユーザが、退会した時と同じメールアドレスで登録できるようにするため、オーバライドしてユニーク制約だけを削除する
+  # 削除済のユーザーと同じemailを登録するとユニーク制約でエラーになるため
+  # オーバライドをすることでユニーク制約だけを削除する
   def self.included(base)
     base.extend ClassMethods
     assert_validations_api!(base)
@@ -36,9 +37,10 @@ class User < ActiveRecord::Base
       validates_length_of       :password, within: password_length, allow_blank: true
     end
   end
+  # サーバーが高負荷時などに、ユーザーが2度押したことで同じ値がDBに登録されてしまうのを防止
   validates :email, uniqueness_without_deleted: true
 
-  #サインイン認証条件を書き換え
+  # usernamteまたはメールアドレスでログインできるように認証条件を書き換え
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
