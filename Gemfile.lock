@@ -329,6 +329,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
+    puma (3.12.0)
     rack (2.0.5)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -488,6 +489,7 @@ DEPENDENCIES
   paranoia_uniqueness_validator
   pry-byebug
   pry-rails
+  puma (~> 3.11)
   rails (~> 5.2.1)
   rails_12factor
   rake (< 11.0)
