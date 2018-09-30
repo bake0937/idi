@@ -1,4 +1,4 @@
-class ChangeUniqueIndexEmailAndDeletedAtToUsers < ActiveRecord::Migration
+class ChangeUniqueIndexEmailAndDeletedAtToUsers < ActiveRecord::Migration[4.2]
   def up
     remove_index :users, :email
     add_index :users, [:email, :deleted_at], unique: true, name: 'index_users_on_email_and_deleted_at'
