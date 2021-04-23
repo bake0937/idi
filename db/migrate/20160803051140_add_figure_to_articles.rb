@@ -1,4 +1,4 @@
-class AddFigureToArticles < ActiveRecord::Migration[4.2]
+class AddFigureToArticles < ActiveRecord::Migration
   def change
     add_column :articles, :figure, :string
   end
